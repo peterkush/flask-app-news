@@ -21,4 +21,7 @@ def index():
      img = []
 
      for i in range(len(articles)):
-         myarticles = 
+         myarticles = [articles[i]]
+
+
+         news.append(myarticles['title'])
