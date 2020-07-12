@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask ,render_template
 from newsapi import NewsApiClient
 
 
@@ -21,7 +21,19 @@ def index():
      img = []
 
      for i in range(len(articles)):
-         myarticles = [articles[i]]
+         myarticles = articles[i]
 
 
          news.append(myarticles['title'])
+
+         desc.append(myarticles['description'])
+
+         img.append(myarticles['urlToImage'])
+
+
+
+
+         mylist = zip(news,desc,img)
+
+
+         return render_template('index.html',context=mylist)
