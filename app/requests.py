@@ -17,14 +17,30 @@ def get_news(source):
     get_article_url = base_url + api_key
 
     with urllib.request.urlopen(get_article_url) as url:
-        get_article_data = url.read()
-        get_article_response = json.loads(get_article_data)
+        get_news_data = url.read()
+        get_news_response = json.loads(get_news_data)
 
-        Article_results = None
+        news_results = None
 
-        if get_article_response['results']:
-            news_articles_list = get_article_response['results']
-            Article_results = process_results(Article_results_list)
-            return articles_results
+        if get_movies_response['results']:
+            news_results_list = get_news_response['results']
+            news_results = process_results(news_results_list)
 
 
+    return news_results
+def process_results(news_results_list):
+    news_results = []
+    for news_item in news_results_list:
+        name = news_item.get ('name')
+        description = news_item.get('description')
+        url = news_item.get('url')
+        category = news_item.get('category')
+        language = news_item.get('language')
+        country = news_item.get('country')
+
+
+        if name:
+            news_obj = News(id , name,description,url,
+                            category,language,country)
+            news_results.append(news_obj)
+    return news_results
