@@ -9,7 +9,7 @@
 <body>
     <!-----heading---->
 <div class="jumbotron" style="color: black;">
-    <h1 style="color: black;"> Web News Appllication</h1>
+    <h1 style="color: black;"> Web News Application</h1>
 
 </div>
     <!----->
@@ -20,6 +20,11 @@
          <h3>News:</h3>{{new}}
 
          <h4>Description:</h4>{{des}}
+         <h4>Published At:</h4>{{publAt}}  
+         <div class="text-center">
+            <a href="{{url}}" type="button" class="btn btn-outline-primary" target="_blank">See More</a>
+          </div>
+
         {%endfor%}
 
     </div>
