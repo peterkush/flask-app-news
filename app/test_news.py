@@ -1,0 +1,37 @@
+import unittest
+from models import news ,articles
+News = news.News
+
+
+class NewsTest(unittest.TestCase):
+    '''
+    Test Class to the behaviour of the News class
+    '''
+    def setUP(self):
+        '''
+        set up method that will run before every Test
+        '''
+        self.new_news =News('BBC','Driver charged for murder of four children','"http://www.bbc.co.uk/news','general','en','US')
+
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.new_news,News))
+
+    def test_check_instance_variables(self):
+        self.assertEquals(self.new_news.name,'name')
+        self.assertEquals(self.new_news.description,'description')
+        self.assertEquals(self.new_news.url,'url')
+        self.assertEquals(self.new_news.category,'category')
+        self.assertEquals(self.new_news.language,'language')
+        self.assertEquals(self.new_news.country,'country')
+
+        #articles test starts
+
+articles = articles.articles
+class ArticlesTest(unittest.TestCase):
+    '''
+    Test Class to test behaviour of the Articles class
+    '''
+    def setUp(self):
+
+
