@@ -44,3 +44,41 @@ def process_results(news_results_list):
                             category,language,country)
             news_results.append(news_obj)
     return news_results
+
+def get_articles(context):
+    '''
+    Function that gets the json responce to our url resquest
+    '''
+    get_article_url = base_url + api_key
+
+    with urllib.request.urlopen(get_article_url) as url:
+        get_article_data = url.read()
+        get_article_response = json.loads(get_article_data)
+
+        article_results = None
+
+        if get_article_response['results']:
+            news_articles_list = get_article_response['results']
+            article_results = process_results(article_results_list)
+            return Articles_results
+
+
+def process_results(article_results_list):
+    Articles = topheadlines['articles']
+    desc = []
+    news = []
+    img = []
+    url = []
+    publAt = []
+
+    for i in range(len(articles)):
+        myarticles = articles[i]
+
+        news.append(myarticles['title'])
+        desc.append(myarticles ['description'])
+        img,append(myarticles['urlToImage'])
+        url.append(myarticles['url'])
+        publAt.append(myarticles['publishedAt'])
+
+        mylist = zip(news ,desc, img, url,publAt)
+        return article_results
