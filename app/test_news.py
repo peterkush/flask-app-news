@@ -33,5 +33,23 @@ class ArticlesTest(unittest.TestCase):
     Test Class to test behaviour of the Articles class
     '''
     def setUp(self):
+                '''
+        Set up method that will run before every Test
+        '''
+        self.new_articles = Articles(self,author, title, description, url, urlToImage, publishedAt, content)
 
+    def test_instance(self):
+        self.assertTrue(isinstance(self.new_articles,Articles))
+        
+    def test_check_instance_variables(self):
+        self.assertEquals(self.new_articles.author,'author')
+        self.assertEquals(self.new_articles.title,'title')
+        self.assertEquals(self.new_articles.description,"description")
+        self.assertEquals(self.new_articles.url,'url')
+        self.assertEquals(self.new_articles.urlToImage,'urlToImage')
+        self.assertEquals(self.new_articles.publishedAt,'publishedAt')
+        self.assertEquals(self.new_articles.content,'content')
+
+if __name__ == '__main__':
+    unittest.main()
 
